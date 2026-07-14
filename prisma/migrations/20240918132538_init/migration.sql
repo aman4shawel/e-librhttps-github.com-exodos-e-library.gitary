@@ -8,6 +8,7 @@ CREATE TABLE "users" (
     "full_name" TEXT NOT NULL,
     "job_role" TEXT,
     "email" TEXT NOT NULL,
+    "password" TEXT NOT NULL,
     "division" TEXT,
     "department" TEXT,
     "role" "Role" NOT NULL DEFAULT 'USER',
@@ -32,6 +33,7 @@ CREATE TABLE "books" (
     "book_rating" INTEGER NOT NULL DEFAULT 0,
     "created_at" DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" DATE NOT NULL,
+    "deleted_at" TIMESTAMP(3),
 
     CONSTRAINT "books_pkey" PRIMARY KEY ("id")
 );
@@ -57,6 +59,7 @@ CREATE TABLE "catalogues" (
     "rawNumber" INTEGER NOT NULL,
     "createdAt" DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "deleted_at" TIMESTAMP(3),
 
     CONSTRAINT "catalogues_pkey" PRIMARY KEY ("id")
 );

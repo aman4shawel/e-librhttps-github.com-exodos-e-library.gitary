@@ -7,12 +7,6 @@ function classNames(...classes) {
 }
 
 const SearchBooks = () => {
-  // const handlePress = (e) => {
-  //   if (e.key === "Enter") {
-  //     const inputVal = e.target.value;
-  //     console.log(inputVal);
-  //   }
-  // };
   return (
     <div className="flex-1 flex">
       <form className="w-full flex md:ml-0" action="#" method="GET">

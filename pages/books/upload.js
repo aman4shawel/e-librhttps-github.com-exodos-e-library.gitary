@@ -1,7 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import { useContext } from "react";
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import NotificationContext from "../../store/notification-context";
 import { baseUrl } from "../../client/config";
@@ -15,7 +14,7 @@ import { useForm } from "react-hook-form";
 const MAX_UPLOAD_SIZE = 1024 * 1024 * 10;
 
 const UploadBooks = () => {
-  const { user } = useContext(UserContext);
+  const { user } = React.useContext(UserContext);
   const router = useRouter();
 
   const validationSchema = z.object({
@@ -23,7 +22,7 @@ const UploadBooks = () => {
     bookDescription: z
       .string()
       .min(1, { message: "Book Description is required" }),
-    bookYear: z
+    bookYear: z.coerce
       .number()
       .refine((value) => value > 0, { message: "Book Year is required" }),
     bookAuthor: z.string().min(1, { message: "Book Author is required" }),
@@ -103,7 +102,7 @@ const UploadBooks = () => {
     { value: "Transversal", label: "Transversal" },
   ];
 
-  const notificationCtx = useContext(NotificationContext);
+  const notificationCtx = React.useContext(NotificationContext);
 
   if (!user) {
     return "Loading";
@@ -150,7 +149,7 @@ const UploadBooks = () => {
             status: "error",
           });
         });
-      await Router.push("/");
+      await router.push("/");
     } catch (err) {
       console.error(err);
       notificationCtx.showNotification({

@@ -38,7 +38,7 @@ const SignIn = ({ csrfToken }) => {
           <div className="bg-white py-8 px-4 sm:rounded-lg sm:px-10">
             <form
               className="space-y-6"
-              method="post"
+              method="POST"
               action="/api/auth/callback/credentials"
             >
               <div>

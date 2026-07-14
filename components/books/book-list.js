@@ -10,14 +10,14 @@ const BookList = ({ bookData }) => {
 
   useEffect(() => {
     if (bookData) {
-      if (bookData.error) {
+      if (bookData?.error) {
         return (
           <div className="mt-2 grid grid-cols-1 gap-5 sm:grid-cols-3 lg:grid-cols-5 border-2 border-t-deepBlue pt-5">
             <h1 className="text-red-700">{bookData.error}</h1>
           </div>
         );
       } else {
-        setBooks(bookData.books);
+        setBooks(bookData?.books);
       }
     }
   }, [bookData]);
